@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/venv/
+backend/.venv/
+venv/
+.venv/
+
+# Build outputs
+dist/
+frontend/dist/
+*.py[cod]
+__pycache__/
+backend/__pycache__/
+
+# Environment & Secrets
+.env
+*.local
+serviceAccountKey.json
+.firebase/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor/OS
+.vscode/
+.idea/
+.DS_Store

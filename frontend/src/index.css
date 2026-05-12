@@ -1,0 +1,38 @@
+@import "tailwindcss";
+
+@theme {
+  --color-maroon-500: #800000;
+  --color-maroon-600: #660000;
+  --color-maroon-700: #4d0000;
+  --font-mono: "Space Mono", monospace;
+  --font-sans: "Inter", sans-serif;
+}
+
+@utility glass-panel {
+  @apply bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl;
+}
+
+@utility glass-panel-hover {
+  @apply hover:bg-black/60 hover:border-white/20 transition-all duration-300;
+}
+
+body {
+  @apply bg-black text-gray-200 antialiased min-h-screen selection:bg-maroon-500 selection:text-white;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #800000;
+}

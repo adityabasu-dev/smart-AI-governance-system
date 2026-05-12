@@ -1,0 +1,17 @@
+# Web Framework
+fastapi
+uvicorn[standard]
+python-dotenv
+
+# Database & Auth
+supabase
+psycopg2-binary
+
+# AI & Machine Learning
+transformers
+torch --index-url https://download.pytorch.org/whl/cpu
+sentencepiece
+
+# Utilities
+pydantic
+httpx
