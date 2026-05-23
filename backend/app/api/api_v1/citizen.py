@@ -19,13 +19,18 @@ class CitizenRegister(BaseModel):
     ward_number: str
 
 def process_ai_classification(doc_id: str, description: str):
-    # Runs the AI model and updates Firebase
-    analysis = nlp.classify_grievance(description)
-    db.collection("grievances").document(doc_id).update({
-        "category": analysis["category"],
-        "confidence": analysis["confidence"],
-        "urgency_score": int(analysis["confidence"] * 100) # Simple urgency logic
-    })
+    try:
+        analysis = nlp.classify_grievance(description)
+        print(f"Analysis result: {analysis}")  # add this
+        db.collection("grievances").document(doc_id).update({
+            "category": analysis["category"],
+            "confidence": analysis["confidence"],
+            "urgency_score": analysis["urgency_pct"],
+            "urgency_level": analysis["urgency_level"],
+        })
+        print(f"Updated doc {doc_id} with urgency {analysis['urgency_pct']}")  # and this
+    except Exception as e:
+        print(f"AI classification error: {e}")  # catch silent failures
 
 @router.post("/submit")
 async def submit_grievance(data: GrievanceSubmit, background_tasks: BackgroundTasks):

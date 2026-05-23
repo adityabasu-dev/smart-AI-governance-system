@@ -1,12 +1,15 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.api.api_v1.endpoints import api_router
+from app.db.firebase_admin import db
+from app.services.nlp import NLPService
 
 app = FastAPI(title="Smart City E-Gov AI")
+nlp_service = NLPService()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # For development; in production, use ["http://localhost:3000"]
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
