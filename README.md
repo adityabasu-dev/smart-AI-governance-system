@@ -176,7 +176,7 @@ smart-AI-governance-system/
     └── postcss.config.js
 ```
 
-*Note: The tree illustrates a suggested module organization. Adjust filenames to match the actual implementation.*
+
 
 ---
 
@@ -290,20 +290,7 @@ Install the frontend dependencies:
 npm install
 ```
 
-Configure the frontend environment variables according to your Firebase and API setup.
 
-For a Vite application, an example `.env` file could contain:
-
-```env
-VITE_API_BASE_URL=http://localhost:8000
-VITE_FIREBASE_API_KEY=your-firebase-api-key
-VITE_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
-VITE_FIREBASE_PROJECT_ID=your-firebase-project-id
-```
-
-Use the actual variable names required by your Firebase initialization code.
-
-**Important:** Vite exposes variables prefixed with `VITE_` to client-side code. Never place Firebase Admin credentials or other server-side secrets in frontend environment variables.
 
 ### 6. Start the Frontend
 
